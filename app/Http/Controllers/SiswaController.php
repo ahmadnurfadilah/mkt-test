@@ -44,6 +44,35 @@ class SiswaController extends Controller
         ]);
     }
 
+    public function kota()
+    {
+        // Ambil sekuruh data siswa
+        $siswa = Siswa::join('rapot', 'rapot.id_siswa', 'siswa.id')
+                      ->join('kelas', 'kelas.id', 'siswa.id_kelas')
+                      ->select('siswa.nis', 'siswa.nama', 'siswa.kota', 'kelas.nama as kelas', 'rapot.nilai', 'rapot.nilai_huruf')
+                      ->orderByDesc('nilai')
+                      ->get();
+
+        // grouping data siswa berdasarkan kota dan kelas
+        $siswa = $siswa->groupBy(['kota', 'kelas'])
+                       ->map(function ($dataKota, $kota) {
+                            return [
+                                'kota' => $kota,
+                                'data' => $dataKota->map(function($dataKelas, $kelas) {
+                                    return [
+                                        'kelas' => $kelas,
+                                        'data' => $dataKelas];
+                                })->values()
+                            ];
+                       })->values();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Ok',
+            'data' => $siswa,
+        ]);
+    }
+
     public function import()
     {
         // Ambil data raw
