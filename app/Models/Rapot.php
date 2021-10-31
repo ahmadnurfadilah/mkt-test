@@ -14,6 +14,7 @@ class Rapot extends Model
         'id_siswa',
         'nilai',
         'huruf',
+        'nilai_huruf',
     ];
 
     public function siswa()
