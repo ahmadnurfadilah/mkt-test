@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/siswa/list', [SiswaController::class, 'list']);
-Route::get('/siswa/kota', [SiswaController::class, 'kota']);
-Route::post('/siswa/import', [ SiswaController::class, 'import']);
+Route::group(['prefix' => 'siswa', 'middleware' => ['basicAuth']], function () {
+    Route::get('/list', [SiswaController::class, 'list']);
+    Route::get('/kota', [SiswaController::class, 'kota']);
+    Route::post('/import', [ SiswaController::class, 'import']);
+});
