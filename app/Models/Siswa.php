@@ -21,4 +21,9 @@ class Siswa extends Model
     {
         return $this->belongsTo(Kelas::class, 'id_kelas', 'id');
     }
+
+    public function rapot()
+    {
+        return $this->hasOne(Rapot::class, 'id_siswa', 'id');
+    }
 }

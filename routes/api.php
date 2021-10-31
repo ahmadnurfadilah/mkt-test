@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/siswa/import', [SiswaController::class, 'import']);
+Route::get('/siswa/list', [SiswaController::class, 'list']);
+Route::post('/siswa/import', [ SiswaController::class, 'import']);
