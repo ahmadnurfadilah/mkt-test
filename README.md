@@ -42,7 +42,7 @@ Jalankan perintah
   php artisan serve
 ```
 
-Akses [localhost:8080](http://localhost:8000) pada browser/postman
+Akses [localhost:8000](http://localhost:8000) pada browser/postman
 
 <br>
 
@@ -58,12 +58,12 @@ Akses [localhost:8080](http://localhost:8000) pada browser/postman
 
 ### Available Route
 1. Import data dari tabel **raw** ke tabel **rapot**
-    > http://localhost/mkt/api/siswa/import (POST)
+    > http://localhost:8000/mkt/api/siswa/import (POST)
 2. List Siswa
-    > http://localhost/mkt/api/siswa/list (GET)
+    > http://localhost:8000/mkt/api/siswa/list (GET)
     Optional parameter: kota, kelas
 3. List Siswa (Per Kota, Per Kelas)
-    > http://localhost/mkt/api/siswa/kota (GET)
+    > http://localhost:8000/mkt/api/siswa/kota (GET)
 
 <br>
 
